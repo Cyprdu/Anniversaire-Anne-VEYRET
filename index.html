@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeux Anniversaire Anne ✨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Animation des particules flottantes */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* En-tête principal */
+        .header {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header p {
+            font-size: 1.5em;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .birthday-icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Conteneur principal */
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Compteur de messages */
+        .counter {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .counter-box {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.3em;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .counter-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        /* Filtres */
+        .filters {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-out 0.8s both;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 30px;
+            margin: 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .filter-btn.active {
+            background: white;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Grille de cartes */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        /* Cartes individuelles */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: fadeInScale 0.6s ease-out both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            background-size: 200% 100%;
+            animation: gradientMove 3s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-right: 15px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .card-info {
+            flex: 1;
+        }
+
+        .card-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .card-date {
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        .card-message {
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.05em;
+            white-space: pre-wrap;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .card-message::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 3em;
+            color: #667eea;
+            opacity: 0.3;
+        }
+
+        .card-footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .heart-btn {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #ccc;
+        }
+
+        .heart-btn:hover, .heart-btn.liked {
+            color: #ff6b6b;
+            transform: scale(1.3);
+        }
+
+        /* Message vide */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+
+        .empty-state-icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        /* Barre de recherche */
+        .search-container {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-out 1s both;
+        }
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.3em;
+            color: #667eea;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .footer-heart {
+            font-size: 2em;
+            color: #ff6b6b;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10%, 30% { transform: scale(1.1); }
+            20%, 40% { transform: scale(1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .header p {
+                font-size: 1.2em;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Effet confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #f0f;
+            position: absolute;
+            animation: confetti-fall 3s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Stats bubble */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 20px 30px;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            min-width: 150px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out both;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #ffd700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Particules flottantes -->
+    <div class="particles" id="particles"></div>
+
+    <!-- En-tête -->
+    <div class="header">
+        <div class="birthday-icon">🎉</div>
+        <h1>Joyeux Anniversaire Anne ! 🎂</h1>
+        <p>Vos élèves vous souhaitent le meilleur</p>
+    </div>
+
+    <!-- Statistiques -->
+    <div class="stats">
+        <div class="stat-item" style="animation-delay: 0.2s;">
+            <span class="stat-number" id="totalMessages">0</span>
+            <span class="stat-label">Messages</span>
+        </div>
+        <div class="stat-item" style="animation-delay: 0.4s;">
+            <span class="stat-number" id="totalWords">0</span>
+            <span class="stat-label">Mots d'amour</span>
+        </div>
+        <div class="stat-item" style="animation-delay: 0.6s;">
+            <span class="stat-number">❤️</span>
+            <span class="stat-label">Affection</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Barre de recherche -->
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" id="searchInput" placeholder="Rechercher un message ou un nom...">
+                <span class="search-icon">🔍</span>
+            </div>
+        </div>
+
+        <!-- Filtres -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Tous les messages</button>
+            <button class="filter-btn" data-filter="recent">Plus récents</button>
+            <button class="filter-btn" data-filter="longest">Plus longs</button>
+        </div>
+
+        <!-- Grille de cartes -->
+        <div class="cards-grid" id="cardsGrid"></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-heart">❤️</div>
+        <p>Créé avec amour pour une professeure exceptionnelle</p>
+        <p style="margin-top: 10px; opacity: 0.8;">© 2025 - Tous vos élèves reconnaissants</p>
+    </div>
+
+    <script>
+        // Données des messages
+        const messages = [
+            {
+                "Horodateur": "2025/11/10 9:41:04 PM UTC+1",
+                "Votre Nom": "Jocquel",
+                "Votre Prénom": "Anaïs",
+                "Votre mot pour Anne": "Bon anniversaire Madame !\nProfitez bien de votre journée, avec tout vos anciens élèves.\nEt que cette année soit joyeuse même si je ne suis plus là pour vous faire rire ;)\n\nEncore bon anniversaire et merci pour ces 3 belles années passées à vos côtés !\n\nAnaïs (Nounouille)"
+            },
+            {
+                "Horodateur": "2025/11/10 9:41:35 PM UTC+1",
+                "Votre Nom": "Mangerest",
+                "Votre Prénom": "Ellioth",
+                "Votre mot pour Anne": "Bien que je n'aie été votre élève qu'une seule année, vous m'avez marqué à jamais. Vous faites partie des trois professeurs qui m'ont donné envie de le devenir à mon tour."
+            },
+            {
+                "Horodateur": "2025/11/10 9:43:15 PM UTC+1",
+                "Votre Nom": "Bailly-Salins",
+                "Votre Prénom": "Octave",
+                "Votre mot pour Anne": "Très chère madame Veyret,\n\nJe sais qu'être en cours avec moi n'est pas toujours facile, mais je voudrais que vous sachiez que vous êtes la meilleure professeure que j'aie eue de toute ma scolarité.\n\nUn très joyeux anniversaire\n\nP.S: je ne dis pas ça pour gratter des points sur les dissertations ; )"
+            },
+            {
+                "Horodateur": "2025/11/10 9:43:50 PM UTC+1",
+                "Votre Nom": "Boeve",
+                "Votre Prénom": "Camille",
+                "Votre mot pour Anne": "Musset serait fier de vos cours qui nous donnent envie d'apprendre encore plus ! Bon anniversaire madame !"
+            },
+            {
+                "Horodateur": "2025/11/10 10:37:19 PM UTC+1",
+                "Votre Nom": "Michel",
+                "Votre Prénom": "Salomé",
+                "Votre mot pour Anne": "Bonjour Mme VEYRET, j'espère que vous allez bien ? Par où commencer, je suis en troisième année à l'arfis (maintenant, c'est l'ESEC), je fais de l'assistanat pour essayer de devenir première assistante mise en scène. Actuellement, je suis en stage en mise en scène sur la série flashback pour TF1. Je pense que j'ai entièrement découvert le cinéma avec vous au lycée, et aujourd'hui je fonce pour en faire mon métier. Je commence doucement à me faire ma place, comme d'habitude. Bref, joyeux anniversaire ! À très bientôt !\nSalomé"
+            },
+            {
+                "Horodateur": "2025/11/10 10:44:29 PM UTC+1",
+                "Votre Nom": "Fuentes",
+                "Votre Prénom": "Capucine",
+                "Votre mot pour Anne": "Tout d'abord, je vous souhaite un merveilleux anniversaire ! Et puis, je vous dis merci. Merci de m'avoir transmis la passion du cinéma, qui est aujourd'hui au centre de ma vie et dans laquelle j'ai la chance de m'épanouir professionnellement tous les jours. Vous y êtes pour beaucoup."
+            },
+            {
+                "Horodateur": "2025/11/10 10:49:53 PM UTC+1",
+                "Votre Nom": "Gourbeyre- -Cappy",
+                "Votre Prénom": "Clara",
+                "Votre mot pour Anne": "Merci de m'avoir transmis cette passion du cinéma; aujourd'hui je vais en faire mon métier et c'est grâce à vous\nBon anniversaire"
+            },
+            {
+                "Horodateur": "2025/11/10 11:13:17 PM UTC+1",
+                "Votre Nom": "Farinone",
+                "Votre Prénom": "Charline",
+                "Votre mot pour Anne": "Merci madame de faire vivre le cinéma et nos rêves !"
+            },
+            {
+                "Horodateur": "2025/11/11 2:56:44 AM UTC+1",
+                "Votre Nom": "Bard",
+                "Votre Prénom": "Anaël",
+                "Votre mot pour Anne": "Bonjour Madame,\nJ'vous remercie pour te ce que vous m'avez apporter dans la vie que ce soit dans le cinéma ou simplement les autres cours et la vie en général si j'ai été accepter dans mon école de cinéma c'est en grande partie grâce à vous !! je n'aurais jamais pu réaliser ce rêve sans vous , Alors Merci Beaucoup pour votre passion que vous nous partager et toutes l'aide que vous nous apportez !!"
+            },
+            {
+                "Horodateur": "2025/11/11 10:57:04 AM UTC+1",
+                "Votre Nom": "Pennuen",
+                "Votre Prénom": "Adèle",
+                "Votre mot pour Anne": "Bonjour Madame ! Je suis vraiment désolée de ne pas pouvoir assister à cette magnifique fête d'anniversaire, mais je tenais à vous souhaiter tout d'abord un très joyeux anniversaire ! En espérant que vous passerez un bon moment tous ensemble. Vous comptez parmi les professeurs marquants de ma vie et dont je me souviendrais toujours, alors merci pour ça !\nOn vous aime fort ❤️"
+            },
+            {
+                "Horodateur": "2025/11/11 12:41:06 PM UTC+1",
+                "Votre Nom": "Bonavitacola",
+                "Votre Prénom": "Emily",
+                "Votre mot pour Anne": "Joyeux anniversaireeeeeeee ! Merci encore pour le lycée ! Vous êtes génialeeeee !"
+            },
+            {
+                "Horodateur": "2025/11/11 12:41:53 PM UTC+1",
+                "Votre Nom": "Maynard",
+                "Votre Prénom": "Lise",
+                "Votre mot pour Anne": "Merci pour votre bonne humeur, vos conseils, et vos encouragements dont j'avait grandement besoin dans mes moments de doutes. Restez qui vous êtes ! :)"
+            },
+            {
+                "Horodateur": "2025/11/11 12:54:13 PM UTC+1",
+                "Votre Nom": "Finet",
+                "Votre Prénom": "Pierre",
+                "Votre mot pour Anne": "Merci pour votre sagesse d'esprit, pour votre passion de nous tirer toujours vers le haut, merci d'exister... Joyeux anniversaire !"
+            },
+            {
+                "Horodateur": "2025/11/11 12:55:01 PM UTC+1",
+                "Votre Nom": "Laurent",
+                "Votre Prénom": "Pacôme",
+                "Votre mot pour Anne": "Joyeux anniversaire Mme Veyret!!\nMerci pour tous ce que vous faites pour nous!!!\nOn vous adore!"
+            },
+            {
+                "Horodateur": "2025/11/11 1:52:42 PM UTC+1",
+                "Votre Nom": "Badoux",
+                "Votre Prénom": "Lorenzo",
+                "Votre mot pour Anne": "Bonjour Anne, j'espère que vous allez bien !\nÇa y est, vous passez enfin le cap des 24 bougies 🤩.\nProfitez bien de vos beaux cadeaux continuez d'être la belle personne que vous êtes, ne changez rien !(PS : je pensais que vous étiez un peut plus vieille quand même…)"
+            },
+            {
+                "Horodateur": "2025/11/11 2:29:10 PM UTC+1",
+                "Votre Nom": "Débias-Saïd",
+                "Votre Prénom": "Cyprien",
+                "Votre mot pour Anne": "Bonjour madame\nMerci beaucoup pour tout vos engagements pour nous en cinéma et en français"
+            },
+            {
+                "Horodateur": "2025/11/11 4:30:25 PM UTC+1",
+                "Votre Nom": "Justine",
+                "Votre Prénom": "Volland",
+                "Votre mot pour Anne": "Joyeux anniversaire Madame !!!!! Juste un petit mot pour vous dire que je suis très contente d'avoir été votre élève, surtout en cinéma. Je ne vous souhaite que de belles choses, et j'espère vous revoir très vite !"
+            },
+            {
+                "Horodateur": "2025/11/11 5:28:43 PM UTC+1",
+                "Votre Nom": "Névoret",
+                "Votre Prénom": "Margot",
+                "Votre mot pour Anne": "Merci pour la petite course dans le fauteuil roulant pour m'emmener en anglais, ça m'a bien fait rire. Et merci aussi de m'accepter dans vos cours le lundi matin même si je ne suis pas votre élève ! Bon anniversaire !"
+            },
+            {
+                "Horodateur": "2025/11/12 10:01:53 AM UTC+1",
+                "Votre Nom": "Wambre",
+                "Votre Prénom": "Colombe",
+                "Votre mot pour Anne": "Joyeux  anniversaire !! Et mercii pour tout !!"
+            }
+        ];
+
+        // Variables globales
+        let filteredMessages = [...messages];
+        let likedCards = new Set();
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            updateStats();
+            renderCards(messages);
+            setupEventListeners();
+            createConfetti();
+        });
+
+        // Créer les particules flottantes
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Créer les confettis
+        function createConfetti() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#6c5ce7', '#a29bfe'];
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 3 + 's';
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 100);
+            }
+        }
+
+        // Mettre à jour les statistiques
+        function updateStats() {
+            const totalWords = messages.reduce((acc, msg) => {
+                return acc + msg["Votre mot pour Anne"].split(/\s+/).length;
+            }, 0);
+
+            document.getElementById('totalMessages').textContent = messages.length;
+            document.getElementById('totalWords').textContent = totalWords;
+        }
+
+        // Obtenir les initiales
+        function getInitials(prenom, nom) {
+            return (prenom.charAt(0) + nom.charAt(0)).toUpperCase();
+        }
+
+        // Formater la date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const options = { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+            return date.toLocaleDateString('fr-FR', options);
+        }
+
+        // Générer une couleur aléatoire pour l'avatar
+        function getRandomColor(name) {
+            const colors = [
+                'linear-gradient(135deg, #667eea, #764ba2)',
+                'linear-gradient(135deg, #f093fb, #f5576c)',
+                'linear-gradient(135deg, #4facfe, #00f2fe)',
+                'linear-gradient(135deg, #43e97b, #38f9d7)',
+                'linear-gradient(135deg, #fa709a, #fee140)',
+                'linear-gradient(135deg, #30cfd0, #330867)',
+                'linear-gradient(135deg, #a8edea, #fed6e3)',
+                'linear-gradient(135deg, #ff9a9e, #fecfef)'
+            ];
+            const index = name.charCodeAt(0) % colors.length;
+            return colors[index];
+        }
+
+        // Rendre les cartes
+        function renderCards(messagesToRender) {
+            const grid = document.getElementById('cardsGrid');
+            grid.innerHTML = '';
+
+            if (messagesToRender.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">😢</div>
+                        <h2>Aucun message trouvé</h2>
+                        <p>Essayez de modifier votre recherche</p>
+                    </div>
+                `;
+                return;
+            }
+
+            messagesToRender.forEach((msg, index) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.style.animationDelay = (index * 0.1) + 's';
+
+                const initials = getInitials(msg["Votre Prénom"], msg["Votre Nom"]);
+                const fullName = `${msg["Votre Prénom"]} ${msg["Votre Nom"]}`;
+                const avatarColor = getRandomColor(fullName);
+
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="avatar" style="background: ${avatarColor};">
+                            ${initials}
+                        </div>
+                        <div class="card-info">
+                            <div class="card-name">${fullName}</div>
+                            <div class="card-date">${formatDate(msg["Horodateur"])}</div>
+                        </div>
+                    </div>
+                    <div class="card-message">${msg["Votre mot pour Anne"]}</div>
+                    <div class="card-footer">
+                        <button class="heart-btn" onclick="toggleLike(${index})">
+                            ${likedCards.has(index) ? '❤️' : '🤍'}
+                        </button>
+                        <span style="color: #999; font-size: 0.9em;">
+                            ${msg["Votre mot pour Anne"].split(/\s+/).length} mots
+                        </span>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        // Toggle like
+        function toggleLike(index) {
+            if (likedCards.has(index)) {
+                likedCards.delete(index);
+            } else {
+                likedCards.add(index);
+            }
+            renderCards(filteredMessages);
+        }
+
+        // Configuration des écouteurs d'événements
+        function setupEventListeners() {
+            // Filtres
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+                    applyFilter(filter);
+                });
+            });
+
+            // Recherche
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                filterBySearch(searchTerm);
+            });
+        }
+
+        // Appliquer les filtres
+        function applyFilter(filter) {
+            let sorted = [...messages];
+
+            switch(filter) {
+                case 'recent':
+                    sorted.sort((a, b) => new Date(b.Horodateur) - new Date(a.Horodateur));
+                    break;
+                case 'longest':
+                    sorted.sort((a, b) => 
+                        b["Votre mot pour Anne"].length - a["Votre mot pour Anne"].length
+                    );
+                    break;
+                default:
+                    sorted = [...messages];
+            }
+
+            filteredMessages = sorted;
+            renderCards(sorted);
+        }
+
+        // Filtrer par recherche
+        function filterBySearch(searchTerm) {
+            if (searchTerm === '') {
+                filteredMessages = [...messages];
+                renderCards(messages);
+                return;
+            }
+
+            const filtered = messages.filter(msg => {
+                const fullName = `${msg["Votre Prénom"]} ${msg["Votre Nom"]}`.toLowerCase();
+                const message = msg["Votre mot pour Anne"].toLowerCase();
+                return fullName.includes(searchTerm) || message.includes(searchTerm);
+            });
+
+            filteredMessages = filtered;
+            renderCards(filtered);
+        }
+
+        // Rendre toggleLike global
+        window.toggleLike = toggleLike;
+    </script>
+</body>
+</html>
