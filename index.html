@@ -515,128 +515,165 @@
 
     <script>
         // Données des messages
-        const messages = [
-            {
-                "Horodateur": "2025/11/10 9:41:04 PM UTC+1",
-                "Votre Nom": "Jocquel",
-                "Votre Prénom": "Anaïs",
-                "Votre mot pour Anne": "Bon anniversaire Madame !\nProfitez bien de votre journée, avec tout vos anciens élèves.\nEt que cette année soit joyeuse même si je ne suis plus là pour vous faire rire ;)\n\nEncore bon anniversaire et merci pour ces 3 belles années passées à vos côtés !\n\nAnaïs (Nounouille)"
-            },
-            {
-                "Horodateur": "2025/11/10 9:41:35 PM UTC+1",
-                "Votre Nom": "Mangerest",
-                "Votre Prénom": "Ellioth",
-                "Votre mot pour Anne": "Bien que je n'aie été votre élève qu'une seule année, vous m'avez marqué à jamais. Vous faites partie des trois professeurs qui m'ont donné envie de le devenir à mon tour."
-            },
-            {
-                "Horodateur": "2025/11/10 9:43:15 PM UTC+1",
-                "Votre Nom": "Bailly-Salins",
-                "Votre Prénom": "Octave",
-                "Votre mot pour Anne": "Très chère madame Veyret,\n\nJe sais qu'être en cours avec moi n'est pas toujours facile, mais je voudrais que vous sachiez que vous êtes la meilleure professeure que j'aie eue de toute ma scolarité.\n\nUn très joyeux anniversaire\n\nP.S: je ne dis pas ça pour gratter des points sur les dissertations ; )"
-            },
-            {
-                "Horodateur": "2025/11/10 9:43:50 PM UTC+1",
-                "Votre Nom": "Boeve",
-                "Votre Prénom": "Camille",
-                "Votre mot pour Anne": "Musset serait fier de vos cours qui nous donnent envie d'apprendre encore plus ! Bon anniversaire madame !"
-            },
-            {
-                "Horodateur": "2025/11/10 10:37:19 PM UTC+1",
-                "Votre Nom": "Michel",
-                "Votre Prénom": "Salomé",
-                "Votre mot pour Anne": "Bonjour Mme VEYRET, j'espère que vous allez bien ? Par où commencer, je suis en troisième année à l'arfis (maintenant, c'est l'ESEC), je fais de l'assistanat pour essayer de devenir première assistante mise en scène. Actuellement, je suis en stage en mise en scène sur la série flashback pour TF1. Je pense que j'ai entièrement découvert le cinéma avec vous au lycée, et aujourd'hui je fonce pour en faire mon métier. Je commence doucement à me faire ma place, comme d'habitude. Bref, joyeux anniversaire ! À très bientôt !\nSalomé"
-            },
-            {
-                "Horodateur": "2025/11/10 10:44:29 PM UTC+1",
-                "Votre Nom": "Fuentes",
-                "Votre Prénom": "Capucine",
-                "Votre mot pour Anne": "Tout d'abord, je vous souhaite un merveilleux anniversaire ! Et puis, je vous dis merci. Merci de m'avoir transmis la passion du cinéma, qui est aujourd'hui au centre de ma vie et dans laquelle j'ai la chance de m'épanouir professionnellement tous les jours. Vous y êtes pour beaucoup."
-            },
-            {
-                "Horodateur": "2025/11/10 10:49:53 PM UTC+1",
-                "Votre Nom": "Gourbeyre- -Cappy",
-                "Votre Prénom": "Clara",
-                "Votre mot pour Anne": "Merci de m'avoir transmis cette passion du cinéma; aujourd'hui je vais en faire mon métier et c'est grâce à vous\nBon anniversaire"
-            },
-            {
-                "Horodateur": "2025/11/10 11:13:17 PM UTC+1",
-                "Votre Nom": "Farinone",
-                "Votre Prénom": "Charline",
-                "Votre mot pour Anne": "Merci madame de faire vivre le cinéma et nos rêves !"
-            },
-            {
-                "Horodateur": "2025/11/11 2:56:44 AM UTC+1",
-                "Votre Nom": "Bard",
-                "Votre Prénom": "Anaël",
-                "Votre mot pour Anne": "Bonjour Madame,\nJ'vous remercie pour te ce que vous m'avez apporter dans la vie que ce soit dans le cinéma ou simplement les autres cours et la vie en général si j'ai été accepter dans mon école de cinéma c'est en grande partie grâce à vous !! je n'aurais jamais pu réaliser ce rêve sans vous , Alors Merci Beaucoup pour votre passion que vous nous partager et toutes l'aide que vous nous apportez !!"
-            },
-            {
-                "Horodateur": "2025/11/11 10:57:04 AM UTC+1",
-                "Votre Nom": "Pennuen",
-                "Votre Prénom": "Adèle",
-                "Votre mot pour Anne": "Bonjour Madame ! Je suis vraiment désolée de ne pas pouvoir assister à cette magnifique fête d'anniversaire, mais je tenais à vous souhaiter tout d'abord un très joyeux anniversaire ! En espérant que vous passerez un bon moment tous ensemble. Vous comptez parmi les professeurs marquants de ma vie et dont je me souviendrais toujours, alors merci pour ça !\nOn vous aime fort ❤️"
-            },
-            {
-                "Horodateur": "2025/11/11 12:41:06 PM UTC+1",
-                "Votre Nom": "Bonavitacola",
-                "Votre Prénom": "Emily",
-                "Votre mot pour Anne": "Joyeux anniversaireeeeeeee ! Merci encore pour le lycée ! Vous êtes génialeeeee !"
-            },
-            {
-                "Horodateur": "2025/11/11 12:41:53 PM UTC+1",
-                "Votre Nom": "Maynard",
-                "Votre Prénom": "Lise",
-                "Votre mot pour Anne": "Merci pour votre bonne humeur, vos conseils, et vos encouragements dont j'avait grandement besoin dans mes moments de doutes. Restez qui vous êtes ! :)"
-            },
-            {
-                "Horodateur": "2025/11/11 12:54:13 PM UTC+1",
-                "Votre Nom": "Finet",
-                "Votre Prénom": "Pierre",
-                "Votre mot pour Anne": "Merci pour votre sagesse d'esprit, pour votre passion de nous tirer toujours vers le haut, merci d'exister... Joyeux anniversaire !"
-            },
-            {
-                "Horodateur": "2025/11/11 12:55:01 PM UTC+1",
-                "Votre Nom": "Laurent",
-                "Votre Prénom": "Pacôme",
-                "Votre mot pour Anne": "Joyeux anniversaire Mme Veyret!!\nMerci pour tous ce que vous faites pour nous!!!\nOn vous adore!"
-            },
-            {
-                "Horodateur": "2025/11/11 1:52:42 PM UTC+1",
-                "Votre Nom": "Badoux",
-                "Votre Prénom": "Lorenzo",
-                "Votre mot pour Anne": "Bonjour Anne, j'espère que vous allez bien !\nÇa y est, vous passez enfin le cap des 24 bougies 🤩.\nProfitez bien de vos beaux cadeaux continuez d'être la belle personne que vous êtes, ne changez rien !(PS : je pensais que vous étiez un peut plus vieille quand même…)"
-            },
-            {
-                "Horodateur": "2025/11/11 2:29:10 PM UTC+1",
-                "Votre Nom": "Débias-Saïd",
-                "Votre Prénom": "Cyprien",
-                "Votre mot pour Anne": "Bonjour madame\nMerci beaucoup pour tout vos engagements pour nous en cinéma et en français"
-            },
-            {
-                "Horodateur": "2025/11/11 4:30:25 PM UTC+1",
-                "Votre Nom": "Justine",
-                "Votre Prénom": "Volland",
-                "Votre mot pour Anne": "Joyeux anniversaire Madame !!!!! Juste un petit mot pour vous dire que je suis très contente d'avoir été votre élève, surtout en cinéma. Je ne vous souhaite que de belles choses, et j'espère vous revoir très vite !"
-            },
-            {
-                "Horodateur": "2025/11/11 5:28:43 PM UTC+1",
-                "Votre Nom": "Névoret",
-                "Votre Prénom": "Margot",
-                "Votre mot pour Anne": "Merci pour la petite course dans le fauteuil roulant pour m'emmener en anglais, ça m'a bien fait rire. Et merci aussi de m'accepter dans vos cours le lundi matin même si je ne suis pas votre élève ! Bon anniversaire !"
-            },
-            {
-                "Horodateur": "2025/11/12 10:01:53 AM UTC+1",
-                "Votre Nom": "Wambre",
-                "Votre Prénom": "Colombe",
-                "Votre mot pour Anne": "Joyeux  anniversaire !! Et mercii pour tout !!"
-            },
-                        {
-                "Horodateur": "2025/11/12 17:01:53 AM UTC+1",
-                "Votre Nom": "VEYRET",
-                "Votre Prénom": "Cyprien",
-                "Votre mot pour Anne": "Je vous souhaite un très joyeux anniversaire. Votre gentillesse, votre bienveillance et votre écoute transforment chaque cours en un moment de cinéma d’Hollywooooooood. Tom Cruise et Mission: Impossible n’ont qu’à bien se tenir face à votre jeu d’acteur exceptionnel ! En plus, franchement, quel merveilleux nom : VEYRET. Plus sérieusement, vous êtes une super prof et je pense que ce n’est pas pour rien si tant de personnes se réunissent pour vous ce soir. Bonne soirée, Madame, prenez soin de vous!"
-            }
-        ];
+const messages = [
+    {
+        "Horodateur": "2025/11/10 9:41:04 PM UTC+1",
+        "Votre Nom": "Jocquel",
+        "Votre Prénom": "Anaïs",
+        "Votre mot pour Anne": "Bon anniversaire Madame !\nProfitez bien de votre journée, avec tout vos anciens élèves.\nEt que cette année soit joyeuse même si je ne suis plus là pour vous faire rire ;)\n\nEncore bon anniversaire et merci pour ces 3 belles années passées à vos côtés !\n\nAnaïs (Nounouille)"
+    },
+    {
+        "Horodateur": "2025/11/10 9:41:35 PM UTC+1",
+        "Votre Nom": "Mangerest",
+        "Votre Prénom": "Ellioth",
+        "Votre mot pour Anne": "Bien que je n'aie été votre élève qu'une seule année, vous m'avez marqué à jamais. Vous faites partie des trois professeurs qui m'ont donné envie de le devenir à mon tour."
+    },
+    {
+        "Horodateur": "2025/11/10 9:43:15 PM UTC+1",
+        "Votre Nom": "Bailly-Salins",
+        "Votre Prénom": "Octave",
+        "Votre mot pour Anne": "Très chère madame Veyret,\n\nJe sais qu'être en cours avec moi n'est pas toujours facile, mais je voudrais que vous sachiez que vous êtes la meilleure professeure que j'aie eue de toute ma scolarité.\n\nUn très joyeux anniversaire\n\nP.S: je ne dis pas ça pour gratter des points sur les dissertations ; )"
+    },
+    {
+        "Horodateur": "2025/11/10 9:43:50 PM UTC+1",
+        "Votre Nom": "Boeve",
+        "Votre Prénom": "Camille",
+        "Votre mot pour Anne": "Musset serait fier de vos cours qui nous donnent envie d'apprendre encore plus ! Bon anniversaire madame !"
+    },
+    {
+        "Horodateur": "2025/11/10 10:37:19 PM UTC+1",
+        "Votre Nom": "Michel",
+        "Votre Prénom": "Salomé",
+        "Votre mot pour Anne": "Bonjour Mme VEYRET, j'espère que vous allez bien ? Par où commencer, je suis en troisième année à l'arfis (maintenant, c'est l'ESEC), je fais de l'assistanat pour essayer de devenir première assistante mise en scène. Actuellement, je suis en stage en mise en scène sur la série flashback pour TF1. Je pense que j'ai entièrement découvert le cinéma avec vous au lycée, et aujourd'hui je fonce pour en faire mon métier. Je commence doucement à me faire ma place, comme d'habitude. Bref, joyeux anniversaire ! À très bientôt !\nSalomé"
+    },
+    {
+        "Horodateur": "2025/11/10 10:44:29 PM UTC+1",
+        "Votre Nom": "Fuentes",
+        "Votre Prénom": "Capucine",
+        "Votre mot pour Anne": "Tout d'abord, je vous souhaite un merveilleux anniversaire ! Et puis, je vous dis merci. Merci de m'avoir transmis la passion du cinéma, qui est aujourd'hui au centre de ma vie et dans laquelle j'ai la chance de m'épanouir professionnellement tous les jours. Vous y êtes pour beaucoup."
+    },
+    {
+        "Horodateur": "2025/11/10 10:49:53 PM UTC+1",
+        "Votre Nom": "Gourbeyre-Cappy",
+        "Votre Prénom": "Clara",
+        "Votre mot pour Anne": "Merci de m'avoir transmis cette passion du cinéma; aujourd'hui je vais en faire mon métier et c'est grâce à vous\nBon anniversaire"
+    },
+    {
+        "Horodateur": "2025/11/10 11:13:17 PM UTC+1",
+        "Votre Nom": "Farinone",
+        "Votre Prénom": "Charline",
+        "Votre mot pour Anne": "Merci madame de faire vivre le cinéma et nos rêves !"
+    },
+    {
+        "Horodateur": "2025/11/11 2:56:44 AM UTC+1",
+        "Votre Nom": "Bard",
+        "Votre Prénom": "Anaël",
+        "Votre mot pour Anne": "Bonjour Madame,\nJ'vous remercie pour te ce que vous m'avez apporter dans la vie que ce soit dans le cinéma ou simplement les autres cours et la vie en général si j'ai été accepter dans mon école de cinéma c'est en grande partie grâce à vous !! je n'aurais jamais pu réaliser ce rêve sans vous , Alors Merci Beaucoup pour votre passion que vous nous partager et toutes l'aide que vous nous apportez !!"
+    },
+    {
+        "Horodateur": "2025/11/11 10:57:04 AM UTC+1",
+        "Votre Nom": "Pennuen",
+        "Votre Prénom": "Adèle",
+        "Votre mot pour Anne": "Bonjour Madame ! Je suis vraiment désolée de ne pas pouvoir assister à cette magnifique fête d'anniversaire, mais je tenais à vous souhaiter tout d'abord un très joyeux anniversaire ! En espérant que vous passerez un bon moment tous ensemble. Vous comptez parmi les professeurs marquants de ma vie et dont je me souviendrais toujours, alors merci pour ça !\nOn vous aime fort ❤️"
+    },
+    {
+        "Horodateur": "2025/11/11 12:41:06 PM UTC+1",
+        "Votre Nom": "Bonavitacola",
+        "Votre Prénom": "Emily",
+        "Votre mot pour Anne": "Joyeux anniversaireeeeeeee ! Merci encore pour le lycée ! Vous êtes génialeeeee !"
+    },
+    {
+        "Horodateur": "2025/11/11 12:41:53 PM UTC+1",
+        "Votre Nom": "Maynard",
+        "Votre Prénom": "Lise",
+        "Votre mot pour Anne": "Merci pour votre bonne humeur, vos conseils, et vos encouragements dont j'avait grandement besoin dans mes moments de doutes. Restez qui vous êtes ! :)"
+    },
+    {
+        "Horodateur": "2025/11/11 12:54:13 PM UTC+1",
+        "Votre Nom": "Finet",
+        "Votre Prénom": "Pierre",
+        "Votre mot pour Anne": "Merci pour votre sagesse d'esprit, pour votre passion de nous tirer toujours vers le haut, merci d'exister... Joyeux anniversaire !"
+    },
+    {
+        "Horodateur": "2025/11/11 12:55:01 PM UTC+1",
+        "Votre Nom": "Laurent",
+        "Votre Prénom": "Pacôme",
+        "Votre mot pour Anne": "Joyeux anniversaire Mme Veyret!!\nMerci pour tous ce que vous faites pour nous!!!\nOn vous adore!"
+    },
+    {
+        "Horodateur": "2025/11/11 1:52:42 PM UTC+1",
+        "Votre Nom": "Badoux",
+        "Votre Prénom": "Lorenzo",
+        "Votre mot pour Anne": "Bonjour Anne, j'espère que vous allez bien !\nÇa y est, vous passez enfin le cap des 24 bougies 🤩.\nProfitez bien de vos beaux cadeaux continuez d'être la belle personne que vous êtes, ne changez rien !(PS : je pensais que vous étiez un peut plus vieille quand même…)"
+    },
+    {
+        "Horodateur": "2025/11/11 2:29:10 PM UTC+1",
+        "Votre Nom": "Débias-Saïd",
+        "Votre Prénom": "Cyprien",
+        "Votre mot pour Anne": "Bonjour madame\nMerci beaucoup pour tout vos engagements pour nous en cinéma et en français"
+    },
+    {
+        "Horodateur": "2025/11/11 4:30:25 PM UTC+1",
+        "Votre Nom": "Volland",
+        "Votre Prénom": "Justine",
+        "Votre mot pour Anne": "Joyeux anniversaire Madame !!!!! Juste un petit mot pour vous dire que je suis très contente d'avoir été votre élève, surtout en cinéma. Je ne vous souhaite que de belles choses, et j'espère vous revoir très vite !"
+    },
+    {
+        "Horodateur": "2025/11/11 5:28:43 PM UTC+1",
+        "Votre Nom": "Névoret",
+        "Votre Prénom": "Margot",
+        "Votre mot pour Anne": "Merci pour la petite course dans le fauteuil roulant pour m'emmener en anglais, ça m'a bien fait rire. Et merci aussi de m'accepter dans vos cours le lundi matin même si je ne suis pas votre élève ! Bon anniversaire !"
+    },
+    {
+        "Horodateur": "2025/11/12 10:01:53 AM UTC+1",
+        "Votre Nom": "Wambre",
+        "Votre Prénom": "Colombe",
+        "Votre mot pour Anne": "Joyeux anniversaire !! Et mercii pour tout !!"
+    },
+    {
+        "Horodateur": "2025/11/12 5:01:53 PM UTC+1", // Correction de l'horodatage (17:01:53 AM → 5:01:53 PM)
+        "Votre Nom": "VEYRET",
+        "Votre Prénom": "Cyprien",
+        "Votre mot pour Anne": "Je vous souhaite un très joyeux anniversaire. Votre gentillesse, votre bienveillance et votre écoute transforment chaque cours en un moment de cinéma d’Hollywooooooood. Tom Cruise et Mission: Impossible n’ont qu’à bien se tenir face à votre jeu d’acteur exceptionnel ! En plus, franchement, quel merveilleux nom : VEYRET. Plus sérieusement, vous êtes une super prof et je pense que ce n’est pas pour rien si tant de personnes se réunissent pour vous ce soir. Bonne soirée, Madame, prenez soin de vous!"
+    },
+    {
+        "Horodateur": "2025/11/14 4:29:04 PM UTC+1",
+        "Votre Nom": "Vincent",
+        "Votre Prénom": "Louanne",
+        "Votre mot pour Anne": "Joyeux anniversaire Madame !!! 🥳\n20 ans déjà !!! Que le temps passe vite 😂\nJe suis tellement contente de vous avoir eu comme professeure. Vous avez égayé mes années lycée, votre bonne humeur était contagieuse ! ☺️  \nJ'espère que cette surprise vous aura plu.\nPrenez soin de vous  ❤️\nLouanne"
+    },
+    {
+        "Horodateur": "2025/11/14 6:26:08 PM UTC+1",
+        "Votre Nom": "ROBIN",
+        "Votre Prénom": "Aïdan",
+        "Votre mot pour Anne": "Maintenant que l’ère de la Justice et du Bac de Français est révolue, Léon est en mesure de vous souhaiter la bienvenue dans le club du demi-centenaire !\nQue la Force soit avec vous,\nAïdan"
+    },
+    {
+        "Horodateur": "2025/11/14 6:31:39 PM UTC+1",
+        "Votre Nom": "Frontin Luquez",
+        "Votre Prénom": "Axel",
+        "Votre mot pour Anne": "Pour la meilleure prof du monde ❤️ merci pour tout !"
+    },
+    {
+        "Horodateur": "2025/11/14 12:50:39 PM UTC+1",
+        "Votre Nom": "Cecconello",
+        "Votre Prénom": "Daphné",
+        "Votre mot pour Anne": "Merci pour ces deux années merveilleuses. Grâce à vous, j’apprends beaucoup de choses et je me sens toujours soutenue. Merci pour  votre gentillesse et bon anniversaire !"
+    },
+    {
+        "Horodateur": "2025/11/14 12:57:20 PM UTC+1",
+        "Votre Nom": "Lachassagne",
+        "Votre Prénom": "Margaux et Nina",
+        "Votre mot pour Anne": "Merciii pour tous ce que vous faite pour nous, vous êtes formidable. Vous êtes trop drôle 💗💗"
+    },
+    {
+        "Horodateur": "2025/11/14 2:53:30 PM UTC+1",
+        "Votre Nom": "BERDOU",
+        "Votre Prénom": "Coraline",
+        "Votre mot pour Anne": "Joyeux anniversaire madame et merci pour ces trois années de français et de cinéma à vos côtés dans les rires et la bonne humeur. Vous avez révélé en moi une véritable passion pour le cinéma qui me suivra tout au long de ma vie, alors merci beaucoup et je vous souhaite un joyeux anniversaire."
+    }
+];
+
 
         // Variables globales
         let filteredMessages = [...messages];
